@@ -1,4 +1,4 @@
 {
-    "integration_type":"integrated",
+    "integration_type":"separate",
     "description": "Module containing a series of useful art tools."
 }

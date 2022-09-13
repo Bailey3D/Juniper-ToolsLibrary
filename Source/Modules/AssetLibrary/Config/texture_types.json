@@ -1,0 +1,51 @@
+{
+    "s":{
+        "identifier":"surface",
+        "r":"roughness",
+        "g":"ambient_occlusion",
+        "b":"height",
+        "a":"metallic",
+        "unreal_compression_method":"TC_MASKS",
+        "parameter_name": "SurfaceMap",
+        "srgb": false
+    },
+    "f":{
+        "identifier":"foliage_surface",
+        "r":"roughness",
+        "g":"ambient_occlusion",
+        "b":"height",
+        "a":"thickness",
+        "unreal_compression_method":"TC_MASKS",
+        "parameter_name": "FoliageSurfaceMap",
+        "srgb": false
+    },
+    "d":{
+        "identifier":"albedo",
+        "rgb":"albedo",
+        "unreal_compression_method":"TC_DEFAULT",
+        "parameter_name": "AlbedoMap",
+        "srgb": true
+    },
+    "da":{
+        "identifier":"albedo_alpha",
+        "rgb":"albedo",
+        "a":"alpha",
+        "unreal_compression_method":"TC_DEFAULT",
+        "parameter_name": "AlbedoMap",
+        "srgb": true
+    },
+    "m":{
+        "identifier":"mask",
+        "rgba":"mask",
+        "unreal_compression_method":"TC_MASKS",
+        "parameter_name": "MasksMap",
+        "srgb": false
+    },
+    "n":{
+        "identifier":"normals",
+        "rgb":"normals",
+        "unreal_compression_method":"TC_NORMALMAP",
+        "parameter_name": "NormalMap",
+        "srgb": false
+    }
+}

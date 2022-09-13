@@ -6,13 +6,13 @@
 :summary Creates an instance of currently selected objects
 '''
 import juniper
-import juniper.dcc.scene
+import jdcc.scene
 
 
 copies = []
-for node in juniper.dcc.scene.get_selection():
+for node in jdcc.scene.get_selection():
     copies.append(node.instance())
-juniper.dcc.scene.set_selection(copies)
+jdcc.scene.set_selection(copies)
 
 if(len(copies)):
     multiple = "" if len(copies) == 1 else "s"
