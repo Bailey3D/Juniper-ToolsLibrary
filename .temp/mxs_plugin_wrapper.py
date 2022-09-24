@@ -21,12 +21,12 @@ class MaterialPluginWrapper(object):
 
     @property
     def class_id_lower(self):
-        # TODO~
+        raise NotImplementedError
         return "123456"
 
     @property
     def class_id_upper(self):
-        # TODO~
+        raise NotImplementedError
         return "789012"
 
     @property

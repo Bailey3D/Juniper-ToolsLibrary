@@ -1,6 +1,3 @@
-"""
-:TODO? Update shader library methods to work now they're merged with asset library
-"""
 import os
 import glob
 

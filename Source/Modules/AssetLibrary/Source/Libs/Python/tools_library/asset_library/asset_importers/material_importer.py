@@ -59,7 +59,6 @@ class MaterialImporter(jdcc.types.assets.asset_importer_template.AssetImporterTe
         import unreal.juniper.materials.material as material
         import unreal.juniper.textures.texture as utexture
 
-        # TODO~ This needs replacing - need a way to pick parents!
         unreal_parent_material_path = "/AssetLibrary/MaterialTemplates/Surface_Standard/MT_Surface_Standard"
 
         # 1) Create the base material
@@ -73,11 +72,8 @@ class MaterialImporter(jdcc.types.assets.asset_importer_template.AssetImporterTe
 
         # 2) Loop all parameters and set them
         for i in material_wrapper.asset_interface.get_key_names("parameters"):
-            # TODO~: Material parameter setting should be an overrideable method in the MaterialWrapper
             param = material_wrapper.asset_interface.get_key(i, "parameters")
 
-            # TODO~: We need a better way of converting parameters in json files
-            #       to Juniper types ..
             if(hasattr(param, "__iter__") and not isinstance(param, str)):
                 if(len(param) == 2):
                     param = juniper.types.math.vector.Vector2(param[0], param[1])

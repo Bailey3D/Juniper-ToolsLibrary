@@ -1,6 +1,3 @@
-"""
-:TODO? Update shader library methods to work now they're merged with asset library
-"""
 import os
 import shutil
 import glob
@@ -31,5 +28,5 @@ def update_shaders():
                     old_lines[i] = old_lines[i].replace(".hlsl", ".ush")
             with open(new_path, "w") as f:
                 f.writelines(old_lines)
-    
+
     tools_library.asset_library.log.info("Updated shader source HLSL files.")

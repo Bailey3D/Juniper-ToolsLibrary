@@ -29,7 +29,6 @@ class GeometryImporter(jdcc.types.assets.asset_importer_template.AssetImporterTe
         """
         :return <str:path> The path to the .fbx file for this geometry
         """
-        # TODO? Should meshes be stored in the metadata file? So we can have nested folders?
         return self.asset_path.replace(".geometry", ".fbx")
 
     # -------------------------------------------------------------------------
