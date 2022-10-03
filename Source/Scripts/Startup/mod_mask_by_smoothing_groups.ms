@@ -1,7 +1,8 @@
 /*
-:type startup
+:type script
 :callbacks [startup]
 :desc Modifier for use on Editable Poly objects which deletes all faces not matching the target smoothing group
+:supported_hosts [max]
 */
 plugin simpleMeshMod MaskBySmoothingGroups
 name:"Mask By Smoothing Group"

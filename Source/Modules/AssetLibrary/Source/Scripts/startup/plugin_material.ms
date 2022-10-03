@@ -1,7 +1,8 @@
 /*
-:type startup
+:type script
 :callbacks [startup]
 :desc Custom material plugin used to pick .material files for use in Max
+:supported_hosts [max]
 */
 plugin material AssetLibraryMaterial
 name:"Asset Library Material"
