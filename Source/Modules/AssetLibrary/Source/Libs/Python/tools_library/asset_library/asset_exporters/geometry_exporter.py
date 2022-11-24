@@ -3,15 +3,15 @@ Exporter class for geometry assets
 """
 import os
 
-import jdcc.types.assets.asset_exporter_template
-import jdcc.scene
+import tools_library.jdcc.types.assets.asset_exporter_template
+import tools_library.jdcc.scene
 import juniper.decorators
 import juniper.utilities.string as string_utils
 
 import tools_library.asset_library.paths
 
 
-class GeometryExporter(jdcc.types.assets.asset_exporter_template.AssetExporterTemplate):
+class GeometryExporter(tools_library.jdcc.types.assets.asset_exporter_template.AssetExporterTemplate):
     def __init__(self, target_asset):
         super().__init__(target_asset)
 
@@ -29,7 +29,7 @@ class GeometryExporter(jdcc.types.assets.asset_exporter_template.AssetExporterTe
         """
         Gets the export directory for the data for this geometry.
         """
-        scene = jdcc.scene.get_current()
+        scene = tools_library.jdcc.scene.get_current()
         scene_dir = os.path.dirname(scene.path)
         if(os.path.basename(scene_dir) == ".source"):
             output = os.path.join(os.path.dirname(scene.path), "..")
@@ -88,4 +88,4 @@ class GeometryExporter(jdcc.types.assets.asset_exporter_template.AssetExporterTe
 
     @property
     def scene(self):
-        return jdcc.scene.get_current()
+        return tools_library.jdcc.scene.get_current()

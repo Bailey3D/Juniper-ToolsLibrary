@@ -2,7 +2,7 @@
 :type tool
 :group Uncategorised
 :supported_hosts [max]
-:category Uncategorised
+:category Utilities|Modelling
 */
 (
 	clearListener()

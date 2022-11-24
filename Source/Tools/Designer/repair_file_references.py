@@ -4,8 +4,8 @@ Initially searches down from the target directory recursively for files matching
 Falls back to searching directories up recursively for name matches.
 
 :type tool
-:group Utility
-:category Utility
+:group Utilities
+:category Utilities|Scene
 :supported_hosts [designer]
 """
 import os

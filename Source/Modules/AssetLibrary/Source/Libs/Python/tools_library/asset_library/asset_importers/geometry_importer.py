@@ -4,10 +4,10 @@ Importer class for geometry assets
 import os
 
 import juniper.decorators
-import jdcc.types.assets.asset_importer_template
+import tools_library.jdcc.types.assets.asset_importer_template
 
 
-class GeometryImporter(jdcc.types.assets.asset_importer_template.AssetImporterTemplate):
+class GeometryImporter(tools_library.jdcc.types.assets.asset_importer_template.AssetImporterTemplate):
     def __init__(self, asset_path):
         super().__init__(asset_path)
 

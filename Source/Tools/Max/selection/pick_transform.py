@@ -1,6 +1,6 @@
 '''
 :type tool
-:category Selection
+:category Utilities|Transform
 :group Selection
 :supported_hosts [max]
 :summary 

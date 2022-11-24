@@ -1,7 +1,7 @@
 """
 :type tool
-:category Import
-:group Import
+:category Asset Library|Import
+:group Asset Library
 :supported_hosts [unreal, max, designer, painter]
 :summary Imports an asset to the current host application
 """

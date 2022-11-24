@@ -1,6 +1,6 @@
 /*
 :type tool
-:category Materials
+:category Utilities|Materials
 :group Materials
 :supported_hosts [max]
 :summary Picks the material on a selected poly in the material editor

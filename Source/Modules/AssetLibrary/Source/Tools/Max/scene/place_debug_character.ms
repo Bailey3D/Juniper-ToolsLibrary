@@ -1,6 +1,6 @@
 /*
 :type tool
-:category Debug
+:category Asset Library|Debug
 :group Debug
 :supported_hosts [max]
 :summary Places a default debug character (from the asset in the asset library)

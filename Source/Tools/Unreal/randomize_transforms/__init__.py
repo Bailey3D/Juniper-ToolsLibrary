@@ -1,7 +1,7 @@
 '''
 :type tool
 :group Selection
-:category Selection
+:category Utilities|Selection
 :supported_hosts [unreal]
 '''
 import random

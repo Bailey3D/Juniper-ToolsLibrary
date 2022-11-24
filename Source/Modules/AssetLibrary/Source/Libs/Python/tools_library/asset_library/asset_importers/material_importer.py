@@ -3,9 +3,9 @@ Importer class for material assets
 """
 import os
 
-import jdcc.material
+import tools_library.jdcc.material
 import juniper.decorators
-import jdcc.types.assets.asset_importer_template
+import tools_library.jdcc.types.assets.asset_importer_template
 import unreal.juniper
 import unreal.juniper.content_browser as cb
 
@@ -13,7 +13,7 @@ import tools_library.asset_library.paths
 import tools_library.asset_library.framework.types.texture_types
 
 
-class MaterialImporter(jdcc.types.assets.asset_importer_template.AssetImporterTemplate):
+class MaterialImporter(tools_library.jdcc.types.assets.asset_importer_template.AssetImporterTemplate):
     def __init__(self, asset_path):
         super().__init__(asset_path)
 
@@ -67,7 +67,7 @@ class MaterialImporter(jdcc.types.assets.asset_importer_template.AssetImporterTe
             unreal_parent_material_path,
             save=True
         )
-        material_wrapper = jdcc.material.MaterialWrapper(material_asset)
+        material_wrapper = tools_library.jdcc.material.MaterialWrapper(material_asset)
         material_wrapper.load_asset_interface(self.asset_path)
 
         # 2) Loop all parameters and set them

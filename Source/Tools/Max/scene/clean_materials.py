@@ -1,6 +1,6 @@
 '''
 :type tool
-:category Scene
+:category Utilities|Scene
 :group Scene
 :supported_hosts [max]
 :summary Cleans the current max scene of all unused materials

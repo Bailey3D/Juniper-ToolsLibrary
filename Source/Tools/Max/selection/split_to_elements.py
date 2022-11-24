@@ -1,6 +1,6 @@
 '''
 :type tool
-:category Selection
+:category Utilities|Selection
 :group Selection
 :supported_hosts [max]
 :summary Splits an Editable Poly / Editable Mesh out into individual nodes for each of the sub-elements

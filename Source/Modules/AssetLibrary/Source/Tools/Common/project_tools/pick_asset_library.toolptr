@@ -2,6 +2,6 @@
     "path":"scripts\\common\\install\\0\\setup.py",
     "icon":"icons\\standard\\pick.png",
     "group":"Core",
-    "category":"Project Tools",
+    "category":"Asset Library",
     "type": "tool"
 }

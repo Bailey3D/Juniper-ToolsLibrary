@@ -1,7 +1,7 @@
 /*
 :type tool
 :group Uncategorised
-:category Uncategorised
+:category Utilities|Placement
 :supported_hosts [max]
 */
 

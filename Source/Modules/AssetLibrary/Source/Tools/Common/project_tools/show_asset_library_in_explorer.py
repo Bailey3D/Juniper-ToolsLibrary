@@ -1,7 +1,7 @@
 """
 :type tool
-:category Core
-:group Core
+:category Asset Library
+:group Asset Library
 :icon icons\\standard\\folder.png
 :desc Open a new explorer window at the current asset library root directory
 """

@@ -1,6 +1,6 @@
 """
 :type tool
-:category Geometry
+:category Asset Library|Geometry
 :group Scene
 :supported_hosts [max]
 :summary Switches between individual meshes stored in the scene under "Export:" selection sets
@@ -9,7 +9,7 @@ import pymxs
 from qtpy import QtWidgets
 
 import juniper
-import jdcc.scene
+import tools_library.jdcc.scene
 import juniper.mxs
 import juniper.tooling
 import juniper.tooling.tool_window
@@ -37,7 +37,7 @@ class MeshSwitcher(juniper.tooling.tool_window.ToolWindow):
     def __refresh_ui(self):
         self.q_selection_sets_list.clear()
 
-        for i in jdcc.scene.get_current().selection_sets:
+        for i in tools_library.jdcc.scene.get_current().selection_sets:
             if(i.name.startswith("Export:")):
                 self.q_selection_sets_list.addItem(i.name.lstrip("Export:"))
 
@@ -47,7 +47,7 @@ class MeshSwitcher(juniper.tooling.tool_window.ToolWindow):
         for i in pymxs.runtime.objects:
             pymxs.runtime.hide(i)
 
-        for i in jdcc.scene.get_current().selection_sets:
+        for i in tools_library.jdcc.scene.get_current().selection_sets:
             if(i.name == selection_set_name):
                 i.show()
 

@@ -1,6 +1,6 @@
 '''
 :type tool
-:category Selection
+:category Utilities|Selection
 :group Selection
 :supported_hosts [max]
 :summary Merges all selected poly objects

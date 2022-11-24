@@ -1,14 +1,14 @@
 '''
 :type tool
-:category Scene
+:category Utilities|Scene
 :group Scene
 :summary Reveals the current max scene in explorer
 :supported_hosts [max, unreal, designer, painter, blender]
 '''
-import jdcc.scene
+import tools_library.jdcc.scene
 
 
-scene = jdcc.scene.get_current()
+scene = tools_library.jdcc.scene.get_current()
 
 if(scene):
     scene.explore()

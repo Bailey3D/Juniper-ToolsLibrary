@@ -3,14 +3,14 @@ Exporter class for material assets
 """
 import os
 
-import jdcc.types.assets.asset_exporter_template
-import jdcc.scene
+import tools_library.jdcc.types.assets.asset_exporter_template
+import tools_library.jdcc.scene
 import juniper.decorators
 
 import tools_library.asset_library.paths
 
 
-class MaterialExporter(jdcc.types.assets.asset_exporter_template.AssetExporterTemplate):
+class MaterialExporter(tools_library.jdcc.types.assets.asset_exporter_template.AssetExporterTemplate):
     def __init__(self, target_asset):
         super().__init__(target_asset)
 
@@ -126,7 +126,7 @@ class MaterialExporter(jdcc.types.assets.asset_exporter_template.AssetExporterTe
 
     @property
     def scene(self):
-        return jdcc.scene.get_current()
+        return tools_library.jdcc.scene.get_current()
 
     @property
     def is_geometry_material(self):
