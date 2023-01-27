@@ -1,14 +1,14 @@
-# TODO.. Move this all over to `scene/node.py`
-import juniper.decorators
-import juniper.types.wrappers.type_wrapper
-from juniper.types.math.vector import Vector3
+# TODO~ Juniper DCC: Move this all over to `scene/node.py`
+import juniper.engine.decorators
+import juniper.runtime.types.wrappers.type_wrapper
+from juniper.runtime.types.math.vector import Vector3
 
 
-class ObjectWrapperManager(juniper.types.wrappers.type_wrapper.TypeWrapperManager):
+class ObjectWrapperManager(juniper.runtime.types.wrappers.type_wrapper.TypeWrapperManager):
     pass
 
 
-class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
+class ObjectWrapper(juniper.runtime.types.wrappers.type_wrapper.TypeWrapper):
     __manager__ = ObjectWrapperManager
 
     # -------------------------------------------------------
@@ -20,7 +20,7 @@ class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
         """
         return self.get_name()
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def get_name(self):
         raise NotImplementedError
 
@@ -32,7 +32,7 @@ class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
 
     # -------------------------------------------------------
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def delete(self):
         """
         Delete this node
@@ -46,7 +46,7 @@ class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
 
     # -------------------------------------------------------
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def select(self):
         """
         Selects this object
@@ -59,7 +59,7 @@ class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
             import pymxs
             pymxs.runtime.selectMore(self.native_object)
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def unselect(self):
         """
         Unselect this object
@@ -81,7 +81,7 @@ class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
         """
         return self.get_is_visible()
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def get_is_visible(self):
         raise NotImplementedError
 
@@ -89,7 +89,7 @@ class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
     def _get_is_visible(self):
         return not self.native_object.isHidden
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def show(self):
         """
         Makes the current object visible
@@ -101,7 +101,7 @@ class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
         import pymxs
         pymxs.runtime.unhide(self.native_object)
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def hide(self):
         """
         Makes the current object hidden
@@ -115,7 +115,7 @@ class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
 
     # -------------------------------------------------------
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def focus(self):
         """
         Focus this object in the viewport
@@ -125,7 +125,7 @@ class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
 
     # -------------------------------------------------------
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def copy(self):
         """
         Copies this object and all of its properties
@@ -141,7 +141,7 @@ class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
             return ObjectWrapper(copy[0])
         return None
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def instance(self):
         """
         Creates an instance of this object if it is possible in the current DCC context
@@ -157,7 +157,7 @@ class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
             return ObjectWrapper(instance[0])
         return None
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def reference(self):
         """
         Creates an reference of this object if it is possible in the current DCC context
@@ -175,7 +175,7 @@ class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
 
     # -------------------------------------------------------
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def translate(self, amount):
         raise NotImplementedError
 
@@ -183,7 +183,7 @@ class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
     def _translate(self, amount):
         self.position = self.position + amount
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def rotate(self, amount):
         raise NotImplementedError
 
@@ -201,7 +201,7 @@ class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
     def position(self, value):
         self.set_position(value)
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def get_position(self):
         raise NotImplementedError
 
@@ -209,7 +209,7 @@ class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
     def _get_position(self):
         return Vector3(self.native_object.position)
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def set_position(self, value):
         raise NotImplementedError
 
@@ -231,7 +231,7 @@ class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
     def rotation(self, value):
         self.set_rotation(value)
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def get_rotation(self):
         raise NotImplementedError
 
@@ -240,7 +240,7 @@ class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
         import pymxs
         return Vector3(pymxs.runtime.quatToEuler(self.native_object.rotation))
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def set_rotation(self, value):
         raise NotImplementedError
 
@@ -266,7 +266,7 @@ class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
     def scale(self, value):
         self.set_scale(value)
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def get_scale(self):
         raise NotImplementedError
 
@@ -274,7 +274,7 @@ class ObjectWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
     def _get_scale(self):
         return Vector3(self.native_object.scale)
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def set_scale(self, value):
         raise NotImplementedError
 

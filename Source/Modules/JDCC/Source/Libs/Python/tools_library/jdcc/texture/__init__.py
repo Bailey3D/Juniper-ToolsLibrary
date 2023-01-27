@@ -1,18 +1,18 @@
-# TODO~: Implementation
+# TODO~ Juniper DCC: Implementation
 # compression_method
 # hash(hash_size)
 # texture_type
 # uses_srgb
 # parameter_name
 # import_asset
-import juniper.types.wrappers.type_wrapper
+import juniper.runtime.types.wrappers.type_wrapper
 
 
-class TextureWrapperManager(juniper.types.wrappers.type_wrapper.TypeWrapperManager):
+class TextureWrapperManager(juniper.runtime.types.wrappers.type_wrapper.TypeWrapperManager):
     pass
 
 
-class TextureWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
+class TextureWrapper(juniper.runtime.types.wrappers.type_wrapper.TypeWrapper):
     __manager__ = TextureWrapperManager
 
     def __init__(self, native_object, asset_path=None):

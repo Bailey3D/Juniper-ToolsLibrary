@@ -54,7 +54,7 @@ def get_content_modules():
 # -----------------------------------------------------------------------------------------
 
 def user_settings_path():
-    return os.path.join(juniper.paths.root(), "Cached\\Plugins\\AssetLibrary\\user_settings.json")
+    return os.path.join(juniper.engine.paths.root(), "Cached\\Plugins\\AssetLibrary\\user_settings.json")
 
 
 # -----------------------------------------------------------------------------------------

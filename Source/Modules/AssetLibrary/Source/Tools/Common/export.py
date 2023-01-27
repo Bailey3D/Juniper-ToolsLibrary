@@ -5,7 +5,7 @@
 :supported_hosts [max, designer]
 :summary Exports all assets from the current scene context
 """
-import juniper.decorators
+import juniper.engine.decorators
 
 import tools_library.jdcc.scene
 import tools_library.jdcc.geometry
@@ -21,7 +21,7 @@ class Exporter(object):
     def __init__(self):
         pass
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def run(self):
         raise NotImplementedError
 

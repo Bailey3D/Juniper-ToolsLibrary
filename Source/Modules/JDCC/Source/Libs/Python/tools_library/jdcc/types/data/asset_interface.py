@@ -1,7 +1,7 @@
 import json
 import os
 
-import juniper.types.misc.guid
+import juniper.runtime.types.misc.guid
 
 
 class AssetInterface(object):
@@ -55,7 +55,7 @@ class AssetInterface(object):
 
         # make sure the asset has a guid if it's not set..
         if(not self.get_metadata_key("asset_guid")):
-            self.set_metadata_key("asset_guid", str(juniper.types.misc.guid.Guid()))
+            self.set_metadata_key("asset_guid", str(juniper.runtime.types.misc.guid.Guid()))
 
     def save(self, force=False):
         """
@@ -63,7 +63,7 @@ class AssetInterface(object):
         :param [<bool:force>] Should we force save even if the asset isn't dirty? This will force the revision guid to update.
         """
         if(self.dirty or force):
-            self.set_metadata_key("revision_guid", str(juniper.types.misc.guid.Guid()))
+            self.set_metadata_key("revision_guid", str(juniper.runtime.types.misc.guid.Guid()))
             if(not os.path.isdir(os.path.dirname(self.asset_path))):
                 os.makedirs(os.path.dirname(self.asset_path))
             with open(self.asset_path, "w") as f:
@@ -179,5 +179,5 @@ class AssetInterface(object):
         """
         self.set_metadata_key(
             "revision_guid",
-            str(juniper.types.misc.guid.Guid())
+            str(juniper.runtime.types.misc.guid.Guid())
         )

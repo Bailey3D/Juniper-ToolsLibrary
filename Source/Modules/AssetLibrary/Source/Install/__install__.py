@@ -7,7 +7,7 @@ import json
 
 import juniper.utilities.filemgr
 import juniper.utilities.json as json_utils
-import juniper.widgets
+import juniper.runtime.widgets
 
 import tools_library.asset_library.paths
 

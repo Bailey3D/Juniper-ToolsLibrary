@@ -5,7 +5,7 @@ import os
 
 import tools_library.jdcc.types.assets.asset_exporter_template
 import tools_library.jdcc.scene
-import juniper.decorators
+import juniper.engine.decorators
 
 import tools_library.asset_library.paths
 
@@ -71,13 +71,13 @@ class MaterialExporter(tools_library.jdcc.types.assets.asset_exporter_template.A
         self.target_asset.load_asset_interface(metadata_file_path)
         return True
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def on_pre_export(self):
         pass
 
     @on_pre_export.override("painter")
     def __on_pre_export(self):
-        # TODO~: We should have a way to programatically pick the right export preset
+        # TODO~ Juniper DCC: We should have a way to programatically pick the right export preset
         # this should be asset library specific, and include logic for things such as
         # Alpha channel, thickness maps, subsurface maps, etc, when required.
         self.target_asset.asset_interface.set_metadata_key(
@@ -91,7 +91,7 @@ class MaterialExporter(tools_library.jdcc.types.assets.asset_exporter_template.A
     def post_export(self):
         return True
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def on_post_export(self):
         pass
 

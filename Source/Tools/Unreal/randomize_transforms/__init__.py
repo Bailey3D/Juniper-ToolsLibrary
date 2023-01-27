@@ -9,7 +9,7 @@ from qtpy import QtWidgets
 
 import juniper
 import juniper.tooling.tool_window
-import juniper.widgets as qt_utils
+import juniper.runtime.widgets as qt_utils
 
 
 class RandomizeTransforms(juniper.tooling.tool_window.ToolWindow):

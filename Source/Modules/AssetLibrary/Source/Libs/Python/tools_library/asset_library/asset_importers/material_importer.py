@@ -4,7 +4,7 @@ Importer class for material assets
 import os
 
 import tools_library.jdcc.material
-import juniper.decorators
+import juniper.engine.decorators
 import tools_library.jdcc.types.assets.asset_importer_template
 import unreal.juniper
 import unreal.juniper.content_browser as cb
@@ -50,7 +50,7 @@ class MaterialImporter(tools_library.jdcc.types.assets.asset_importer_template.A
     def do_import(self):
         pass
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def on_do_import(self):
         pass
 
@@ -76,11 +76,11 @@ class MaterialImporter(tools_library.jdcc.types.assets.asset_importer_template.A
 
             if(hasattr(param, "__iter__") and not isinstance(param, str)):
                 if(len(param) == 2):
-                    param = juniper.types.math.vector.Vector2(param[0], param[1])
+                    param = juniper.runtime.types.math.vector.Vector2(param[0], param[1])
                 if(len(param) == 3):
-                    param = juniper.types.math.vector.Vector3(param[0], param[1], param[2])
+                    param = juniper.runtime.types.math.vector.Vector3(param[0], param[1], param[2])
                 else:
-                    param = juniper.types.math.vector.Vector4(param[0], param[1], param[2], param[3])
+                    param = juniper.runtime.types.math.vector.Vector4(param[0], param[1], param[2], param[3])
             material.set_parameter(material_asset, i, param)
 
         # 3) Loop set all texture parameters, import the asset if it doesn't exist

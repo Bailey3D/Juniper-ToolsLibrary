@@ -1,19 +1,19 @@
-# TODO.. Replace with the class in `juniper.dcc.types.scene`
+# TODO~ Juniper DCC: Replace with the class in `juniper.dcc.types.scene`
 import os
 import subprocess
 
-import juniper.decorators
+import juniper.engine.decorators
 import tools_library.jdcc.material
 import tools_library.jdcc.scene.object_wrapper
 import tools_library.jdcc.scene.selection_set_wrapper
-import juniper.types.wrappers.type_wrapper
+import juniper.runtime.types.wrappers.type_wrapper
 
 
-class SceneWrapperManager(juniper.types.wrappers.type_wrapper.TypeWrapperManager):
+class SceneWrapperManager(juniper.runtime.types.wrappers.type_wrapper.TypeWrapperManager):
     pass
 
 
-class SceneWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
+class SceneWrapper(juniper.runtime.types.wrappers.type_wrapper.TypeWrapper):
     """
     A wrapper class for the current scene depending on the current DCC application
     """
@@ -27,7 +27,7 @@ class SceneWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
         """
         return self.get_path().replace("/", "\\")
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def get_path(self):
         raise NotImplementedError
 
@@ -62,7 +62,7 @@ class SceneWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
         """
         return self.get_name()
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def get_name(self):
         raise NotImplementedError
 
@@ -97,7 +97,7 @@ class SceneWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
 
     # -------------------------------------------------------
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def save(self):
         """
         Save the current scene to disk - runs a save as if the file does not exist
@@ -116,7 +116,7 @@ class SceneWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
         except Exception:
             return False
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def save_as(self, file_path=None):
         """
         Save the current file to disk
@@ -127,7 +127,7 @@ class SceneWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
 
     # -------------------------------------------------------
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def close(self, force=False):
         """
         Closes the current scene
@@ -152,7 +152,7 @@ class SceneWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
         """
         return self.get_materials()
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def get_materials(self):
         raise NotImplementedError
 
@@ -185,7 +185,7 @@ class SceneWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
         """
         return self.get_objects()
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def get_objects(self):
         raise NotImplementedError
 
@@ -204,7 +204,7 @@ class SceneWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
     def selection_sets(self):
         return self.get_selection_sets()
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def get_selection_sets(self):
         """
         :return <[SelectionSetWrapper]:selection_sets> All selection sets in the current scene

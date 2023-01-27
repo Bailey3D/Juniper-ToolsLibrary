@@ -38,7 +38,7 @@
 					)
 
 					mEdit.setActiveMtlSlot mat_index True
-					-- TODO~: Need a way to switch to the current multi material index
+					-- TODO~ Tools Library: Need a way to switch to the current multi material index
 				)
 			)
 			#stop

@@ -3,7 +3,7 @@ Importer class for geometry assets
 """
 import os
 
-import juniper.decorators
+import juniper.engine.decorators
 import tools_library.jdcc.types.assets.asset_importer_template
 
 
@@ -36,13 +36,13 @@ class GeometryImporter(tools_library.jdcc.types.assets.asset_importer_template.A
     def do_import(self):
         pass
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def on_do_import(self):
         pass
 
     @on_do_import.override("unreal")
     def __on_do_import(self):
-        # 1) TODO~: Import all materials
+        # 1) TODO~ Asset Library: Import all materials
         # ..
 
         # 2) Import geometry w/ settings
@@ -53,7 +53,7 @@ class GeometryImporter(tools_library.jdcc.types.assets.asset_importer_template.A
             unreal.juniper.content_browser.map_path(self.fbx_path)
         )
 
-        # 3) TODO~: Set materials
+        # 3) TODO~ Asset Library: Set materials
         # ..
 
         # 4) Save asset ..

@@ -1,10 +1,10 @@
 """
 Scene based functions
 """
-# TODO.. Transfer this all over to `juniper.dcc.types.scene`
+# TODO~ Juniper DCC: Transfer this all over to `juniper.dcc.types.scene`
 import os
 
-import juniper.decorators
+import juniper.engine.decorators
 from .scene_wrapper import SceneWrapper
 from .object_wrapper import ObjectWrapper
 import juniper.utilities.pathing
@@ -13,7 +13,7 @@ import juniper.utilities.array
 
 # --------------------------------------------------------------
 
-@juniper.decorators.virtual_method
+@juniper.engine.decorators.virtual_method
 def get_current():
     """
     Gets a reference to the object for the current scene wrapped in a juniper SceneWrapper object
@@ -64,7 +64,7 @@ def _get_current():
 # --------------------------------------------------------------
 
 
-@juniper.decorators.virtual_method
+@juniper.engine.decorators.virtual_method
 def get_selection():
     """
     Gets a list containing the currently selected objects in the current scene
@@ -95,7 +95,7 @@ def _get_selection():
 # --------------------------------------------------------------
 
 
-@juniper.decorators.virtual_method
+@juniper.engine.decorators.virtual_method
 def clear_selection():
     """
     Clears the current selection
@@ -111,7 +111,7 @@ def _clear_selection():
 # --------------------------------------------------------------
 
 
-@juniper.decorators.virtual_method
+@juniper.engine.decorators.virtual_method
 def set_selection(selection=None):
     """
     Sets the selection to the input array
@@ -125,7 +125,7 @@ def set_selection(selection=None):
 # --------------------------------------------------------------
 
 
-@juniper.decorators.virtual_method
+@juniper.engine.decorators.virtual_method
 def select(*args):
     """
     Selects the input object_name - this does not remove from current selection
@@ -136,7 +136,7 @@ def select(*args):
 # --------------------------------------------------------------
 
 
-@juniper.decorators.virtual_method
+@juniper.engine.decorators.virtual_method
 def get_objects():
     """
     Gets a list containing all objects in the current scene
@@ -165,7 +165,7 @@ def _get_objects():
     return output
 
 
-@juniper.decorators.virtual_method
+@juniper.engine.decorators.virtual_method
 def find_object(object_name):
     """
     Searches the current scene for an object given a target name

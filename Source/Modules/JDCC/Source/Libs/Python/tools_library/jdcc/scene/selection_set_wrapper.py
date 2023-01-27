@@ -1,5 +1,5 @@
-# TODO.. Replace this witth the class in `juniper.dcc.types.scene.selection_set`
-import juniper.decorators
+# TODO~ Juniper DCC: Replace this witth the class in `juniper.dcc.types.scene.selection_set`
+import juniper.engine.decorators
 import tools_library.jdcc.scene.object_wrapper
 
 
@@ -17,7 +17,7 @@ class SelectionSetWrapper(object):
         """
         return self.get_objects()
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def get_objects(self):
         raise NotImplementedError
 
@@ -48,7 +48,7 @@ class SelectionSetWrapper(object):
         """
         self.set_name(value)
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def get_name(self):
         raise NotImplementedError
 
@@ -56,7 +56,7 @@ class SelectionSetWrapper(object):
     def __get_name(self):
         return self.native_object.name
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def set_name(self, value):
         raise NotImplementedError
 
@@ -66,7 +66,7 @@ class SelectionSetWrapper(object):
 
     # ----------------------------------------------------------------
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def add_object(self, object_):
         """
         Adds an object to this selection set

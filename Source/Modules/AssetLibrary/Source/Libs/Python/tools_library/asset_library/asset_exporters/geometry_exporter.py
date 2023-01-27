@@ -5,7 +5,7 @@ import os
 
 import tools_library.jdcc.types.assets.asset_exporter_template
 import tools_library.jdcc.scene
-import juniper.decorators
+import juniper.engine.decorators
 import juniper.utilities.string as string_utils
 
 import tools_library.asset_library.paths
@@ -44,7 +44,7 @@ class GeometryExporter(tools_library.jdcc.types.assets.asset_exporter_template.A
     def export(self):
         pass
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def on_export(self):
         pass
 

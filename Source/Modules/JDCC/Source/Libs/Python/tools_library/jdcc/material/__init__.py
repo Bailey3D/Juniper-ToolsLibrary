@@ -2,17 +2,17 @@ import os
 
 import juniper
 import tools_library.jdcc.scene
-import juniper.decorators
+import juniper.engine.decorators
 import tools_library.jdcc.types.data.asset_interface
-import juniper.types.wrappers.type_wrapper
+import juniper.runtime.types.wrappers.type_wrapper
 import juniper.utilities.string as string_utils
 
 
-class MaterialWrapperManager(juniper.types.wrappers.type_wrapper.TypeWrapperManager):
+class MaterialWrapperManager(juniper.runtime.types.wrappers.type_wrapper.TypeWrapperManager):
     pass
 
 
-class MaterialWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
+class MaterialWrapper(juniper.runtime.types.wrappers.type_wrapper.TypeWrapper):
     __manager__ = MaterialWrapperManager
 
     def __init__(self, native_object, asset_data_path=None):
@@ -59,7 +59,7 @@ class MaterialWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
         """
         return string_utils.remove_prefix(self.name, "M_")
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def get_name(self):
         raise NotImplementedError
 
@@ -105,7 +105,7 @@ class MaterialWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
         """
         return string_utils.remove_prefix(self.base_name, "M_")
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def get_base_name(self):
         raise NotImplementedError
 
@@ -128,7 +128,7 @@ class MaterialWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
         """
         return self.get_path()
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def get_path(self):
         raise NotImplementedError
 
@@ -197,7 +197,7 @@ class MaterialWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
 
         return success
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def __export(self):
         """
         Run the base export logic

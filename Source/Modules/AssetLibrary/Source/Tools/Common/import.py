@@ -7,7 +7,7 @@
 """
 import os
 
-import juniper.decorators
+import juniper.engine.decorators
 import juniper.utilities.filemgr
 
 import tools_library.asset_library.paths
@@ -18,7 +18,7 @@ class Importer(object):
     def __init__(self):
         pass
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def run(self):
         raise NotImplementedError
 

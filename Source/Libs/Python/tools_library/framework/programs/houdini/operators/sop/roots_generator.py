@@ -1,8 +1,8 @@
 import hou
 
-import juniper.math
+import juniper.utilities.math
 
-import hou.juniper.maths as maths
+import hou.juniper.utilities.maths as maths
 
 
 class _SCAttractionPoint(object):

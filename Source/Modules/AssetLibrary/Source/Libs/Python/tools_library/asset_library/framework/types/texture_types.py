@@ -6,8 +6,8 @@ See "/AssetLibrary/config/common/texture_types.json"
 import json
 import os
 
-from juniper.types.framework.singleton import Singleton
-import juniper.paths
+from juniper.runtime.types.framework.singleton import Singleton
+import juniper.engine.paths
 
 
 class TextureType(object):
@@ -73,7 +73,7 @@ class TextureTypes(object, metaclass=Singleton):
         """
         Wrapper for the texture_types.json file.
         """
-        self.texture_types_config_path = juniper.paths.get_config("texture_types.json", plugin="AssetLibrary")
+        self.texture_types_config_path = juniper.engine.paths.get_config("texture_types.json", plugin="AssetLibrary")
         with open(self.texture_types_config_path, "r") as f:
             self._data = json.load(f)
 

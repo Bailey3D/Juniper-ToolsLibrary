@@ -1,13 +1,13 @@
 """
 Wrapper class for a geometry type.
 
-TODO~:   Implementation, this will be an extensive asset implementation due to the different native objects
+TODO~ Juniper DCC:   Implementation, this will be an extensive asset implementation due to the different native objects
         that can be wrapped, and the fact multiple can be per-program.
 
         Some of these types can also only be wrapped for helper reasons, Ie Painter, which should only have
         support for exporting the FXB from the scene
 
-TODO~:
+TODO~ Juniper DCC:
     - run_import(unreal)
     - fbx interface
     - get materials on object?
@@ -18,17 +18,17 @@ import os
 import tools_library.jdcc.scene
 import tools_library.jdcc.scene.selection_set_wrapper
 import tools_library.jdcc.scene.object_wrapper
-import juniper.decorators
+import juniper.engine.decorators
 import tools_library.jdcc.types.data.asset_interface
-import juniper.types.wrappers.type_wrapper
+import juniper.runtime.types.wrappers.type_wrapper
 import juniper.utilities.string as string_utils
 
 
-class GeometryWrapperManager(juniper.types.wrappers.type_wrapper.TypeWrapperManager):
+class GeometryWrapperManager(juniper.runtime.types.wrappers.type_wrapper.TypeWrapperManager):
     pass
 
 
-class GeometryWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
+class GeometryWrapper(juniper.runtime.types.wrappers.type_wrapper.TypeWrapper):
     __manager__ = GeometryWrapperManager
 
     def __init__(self, native_object, asset_data_path=None):
@@ -78,7 +78,7 @@ class GeometryWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
         if("{package}" in output):
             current_scene = tools_library.jdcc.scene.get_current()
             if(current_scene):
-                # TODO~: Export validation - we should not be able to export in this situation without a saved file
+                # TODO~ Juniper DCC: Export validation - we should not be able to export in this situation without a saved file
                 current_scene_name = current_scene.name
                 output = output.replace("{package}", current_scene_name)
         return output
@@ -90,7 +90,7 @@ class GeometryWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
         """
         return string_utils.remove_prefix(self.name, "SM_")
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def get_name(self):
         raise NotImplementedError
 
@@ -101,7 +101,7 @@ class GeometryWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
             output = self.native_object.name
         except Exception:
             # if we've hit a non supported wrap type
-            # TODO~: LayerWrapper ?
+            # TODO~ Juniper DCC: LayerWrapper ?
             raise NotImplementedError
         return output
 
@@ -114,7 +114,7 @@ class GeometryWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
         """
         return self.get_path()
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def get_path(self):
         raise NotImplementedError
 
@@ -149,7 +149,7 @@ class GeometryWrapper(juniper.types.wrappers.type_wrapper.TypeWrapper):
 
         return success
 
-    @juniper.decorators.virtual_method
+    @juniper.engine.decorators.virtual_method
     def __export(self):
         """
         run the base export logic
